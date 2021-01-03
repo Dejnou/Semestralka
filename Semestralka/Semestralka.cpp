@@ -144,6 +144,8 @@ int main()
 							cout << " You choose Lighting attack!" << endl << endl;
 							hp2 = hp2 - pspell1;
 							cout << " Restt amount Wigglytuffs HP is :" << hp2 << endl;
+
+
 						}
 					}
 				}
