@@ -67,7 +67,7 @@ void pikachu(int hp1) {
 	cout << "             ,    / )     ., -,     " << endl;
 	cout << "              \\    /  __   .-'		" << endl;
 	cout << "               \\,_/- `  `-'		" << endl;
-	cout << "-------------------------------------------" << endl;
+	cout << "------------------------------------------" << endl;
 	pikachuhp(hp1);
 	
 
@@ -135,14 +135,13 @@ int main()
 	int hp1 = 100;
 	int hp2 = 100;
 	int utok;
-	int utok2;
 	int randomcislo;
 	int spell1 = 20;
 	int spell2 = 10;
 	int spell3 = 15;
 	int spell4 = 5;
 	int potion = 15;
-	char charakter;
+	int charakter;
 	bool stop = true;
 	setlocale(LC_ALL, "");
 
@@ -162,17 +161,17 @@ int main()
 
 
 	cout << " Choose your character:" << endl;
-	cout << "             A" << endl << endl << endl;
+	cout << "             1.)" << endl << endl << endl;
 	pikachu(hp1);
 	cout << endl << endl << endl;
-	cout << "             B" << endl << endl << endl;
+	cout << "             2.)" << endl << endl << endl;
 	wigglytuff(hp2);
 
 	cin >> charakter;
 
 
 
-	if (charakter == 'A' or 'a') {
+	if (charakter == 1)    {
 		clearscreen();
 		cout << "You choose Pikachu as your Pokémon " << username << "!" << endl << endl;
 
@@ -234,7 +233,7 @@ int main()
 			
 			case 5: 
 				
-				cout << " You choose Healing potion, your health will be regenerated for 10HP " << endl << endl;
+				cout << " You choose Healing potion, your health will be regenerated for 15HP " << endl << endl;
 				hp1 = hp1 + potion;
 				cout << " Restt amount of Pikachus hp is :" << hp1 << endl;
 				pikachu(hp1);
@@ -257,8 +256,7 @@ int main()
 			
 			
 			
-			cout << " Now wigglytuffs turn:" << endl << endl<< endl;
-		
+			cout << " Now wigglytuff's turn:" << endl << endl<< endl;
 			randomcislo = rand() % 5 + 1;
 			
 
@@ -318,6 +316,11 @@ int main()
 					cout << endl << endl << "    Thank you for playing my shitty game! " << endl << endl;
 					pikachu(hp1);
 					wigglytuff(hp2);
+					ifstream MyReadFile("pokemonhrac.txt");
+					while (getline(MyReadFile, username)) {
+						cout << " Game Over player  " << username << " with " << hp1 << " HP " << endl;
+						cout << "Good luck next time!" << endl;
+					}
 					stop = false;
 			}
 			else if (hp2 < 1) {
@@ -326,6 +329,10 @@ int main()
 					cout << endl << endl << "    Thank you for playing my shitty game! " << endl << endl;
 					pikachu(hp1);
 					wigglytuff(hp2);
+					ifstream MyReadFile("pokemonhrac.txt");
+					while (getline(MyReadFile, username)) {
+						cout << " Game Over player  " << username << " with " << hp1 << " HP " << endl;
+					}
 					stop = false;
 
 			}
@@ -333,10 +340,6 @@ int main()
 					stop = true;
 					continue;
 			}
-
-
-			
-
 		}
 	}
 	
@@ -348,7 +351,183 @@ int main()
 
 
 
+	else if (charakter == 2) {
+		
+			clearscreen();
+			cout << "You choose Wigglytuff as your Pokémon " << username << "!" << endl << endl;
 
+			while (stop) {
+
+
+
+				cout << endl;
+				clearscreen1();
+				wigglyspells(hp2);
+				cout << endl;
+				cin >> utok;
+
+
+				switch (utok) {
+				case 1:
+
+					cout << " You choose Hypnoblast!" << endl << endl;
+					hp1 = hp1 - spell1;
+					cout << " Restt amount of Pikachu's HP is :" << hp1 << endl;
+					pikachu(hp1);
+					wigglytuff(hp2);
+					clearscreen1();
+					break;
+
+				case 2:
+
+					cout << " You choose Hocus pinkus!" << endl << endl;
+					hp1 = hp1 - spell2;
+					cout << " Restt amount of Pikachu's HP is :" << hp1 << endl;
+					pikachu(hp1);
+					wigglytuff(hp2);
+					clearscreen1();
+					break;
+
+				case 3:
+
+					cout << " You choose Punishing slap!" << endl << endl;
+					hp1 = hp1 - spell3;
+					cout << " Restt amount of Pikachu's HP is :" << hp2 << endl;
+					pikachu(hp1);
+					wigglytuff(hp2);
+					clearscreen1();
+					break;
+
+				case 4:
+
+					cout << " You choose Gather energy!" << endl << endl;
+					hp1 = hp1 - spell4;
+					cout << " Restt amount of Pikachu's HP is :" << hp2 << endl;
+					pikachu(hp1);
+					wigglytuff(hp2);
+					clearscreen1();
+					break;
+
+				case 5:
+
+					cout << " You choose Healing potion, your health will be regenerated for 15HP " << endl << endl;
+					hp2 = hp2 + potion;
+					cout << " Restt amount of Wigglytuff's hp is :" << hp2 << endl;
+					pikachu(hp1);
+					wigglytuff(hp2);
+					clearscreen1();
+					break;
+
+				default:
+
+					cout << " You don't cast a spell!" << endl;
+					pikachu(hp1);
+					wigglytuff(hp2);
+					clearscreen1();
+
+					break;
+				}
+
+
+
+
+
+
+
+
+				cout << " Now Pikachu's turn:" << endl << endl << endl;
+				randomcislo = rand() % 5 + 1;
+
+
+
+
+
+
+
+				switch (randomcislo) {
+
+
+				case 1: cout << "Pikachu choose Lighting attack !" << endl;
+					hp2 = hp2 - spell1;
+					pikachu(hp1);
+					wigglytuff(hp2);
+					clearscreen1();
+					break;
+
+
+				case 2: cout << "Pikachu choose Tail swipe !" << endl;
+					hp2 = hp2 - spell2;
+					pikachu(hp1);
+					wigglytuff(hp2);
+					clearscreen1();
+					break;
+
+				case 3: cout << "Pikachu choose Storm kick !" << endl;
+					hp2 = hp2 - spell3;
+					pikachu(hp1);
+					wigglytuff(hp2);
+					clearscreen1();
+					break;
+
+				case 4: cout << "Pikachu choose Fist punch !" << endl;
+					hp2 = hp2 - spell4;
+					pikachu(hp1);
+					wigglytuff(hp2);
+					clearscreen1();
+					break;
+
+				case 5: cout << "Pikachu choose Healing potion !" << endl;
+					hp1 = hp1 + potion;
+					pikachu(hp1);
+					wigglytuff(hp2);
+					clearscreen1();
+					break;
+				}
+
+
+
+
+				if (hp1 < 1) {
+					clearscreen1();
+					cout << endl << endl << "    Wigglytuff wins this match " << username << "!" << endl << endl;
+					cout << endl << endl << "    Thank you for playing my shitty game! " << endl << endl;
+					pikachu(hp1);
+					wigglytuff(hp2);
+					ifstream MyReadFile("pokemonhrac.txt");
+					while (getline(MyReadFile, username)) {
+						cout << " Game Over player  " << username << " with " << hp1 << " HP " << endl;
+					}
+					stop = false;
+				}
+				else if (hp2 < 1) {
+					clearscreen1();
+					cout << endl << endl << "    Pikachu wins this match " << username << "!" << endl << endl;
+					cout << endl << endl << "    Thank you for playing my shitty game! " << endl << endl;
+					pikachu(hp1);
+					wigglytuff(hp2);
+					ifstream MyReadFile("pokemonhrac.txt");
+					while (getline(MyReadFile, username)) {
+						cout << " Game Over player  " << username << " with " << hp1 << " HP " << endl;
+						cout << "Good luck next time!" << endl;
+					}
+					stop = false;
+
+				}
+				else {
+					stop = true;
+					continue;
+				}
+
+
+		}
+	}
+
+	else {
+	cout << " Try 1 or 2 next time Moron :/" << endl;
+	
+		
+
+}
 return 0;
 }
 		
