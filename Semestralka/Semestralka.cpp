@@ -22,6 +22,7 @@ using namespace std;
 
 
 void clearscreen() {
+	cin.ignore();
 	int i;
 	for (i = 0; i < 80; i++) {
 		cout << endl;
@@ -30,7 +31,8 @@ void clearscreen() {
 
 
 void clearscreen1() {
-	Sleep(4000);
+	cout << "Press Enter to continue" << endl;
+	cin.ignore();
 	int i;
 	for (i = 0; i < 80; i++) {
 		cout << endl;
@@ -69,7 +71,8 @@ void pikachu(int hp1) {
 	cout << "               \\,_/- `  `-'		" << endl;
 	cout << "------------------------------------------" << endl;
 	pikachuhp(hp1);
-	
+	cout << endl << endl << endl;
+
 
 }
 
@@ -93,6 +96,7 @@ void wigglytuff(int hp2) {
 	cout << "      (.....'''           ''''    	" << endl;
 	cout << "------------------------------------------ " << endl;
 	wigglyhp(hp2);
+	cout << endl << endl << endl;
 	}
 
 void pikachuspells(int hp1) {
@@ -141,7 +145,7 @@ int main()
 	int spell3 = 15;
 	int spell4 = 5;
 	int potion = 15;
-	int charakter;
+	double charakter;
 	bool stop = true;
 	setlocale(LC_ALL, "");
 
@@ -149,8 +153,9 @@ int main()
 
 
 
-	cout << "     Welcome to Pokémon" << endl;
-	cout << " Enter your username:" << endl;
+	cout << "    Welcome to Pokémon trainer" << endl;
+	Sleep(2000);
+	cout << "     Enter your username:" << endl;
 	cin >> username;
 	cout << endl;
 
@@ -161,19 +166,20 @@ int main()
 
 
 	cout << " Choose your character:" << endl;
-	cout << "             1.)" << endl << endl << endl;
+	cout << "                1" << endl << endl << endl;
 	pikachu(hp1);
 	cout << endl << endl << endl;
-	cout << "             2.)" << endl << endl << endl;
+	cout << "                2" << endl << endl << endl;
 	wigglytuff(hp2);
 
 	cin >> charakter;
 
 
 
-	if (charakter == 1)    {
+	if (charakter == 1 )    {
 		clearscreen();
 		cout << "You choose Pikachu as your Pokémon " << username << "!" << endl << endl;
+		
 
 		while (stop) {
 
@@ -181,10 +187,10 @@ int main()
 
 
 			cout << endl;
-			clearscreen1();
 			pikachuspells(hp1);
 			cout << endl;
 			cin >> utok;
+			clearscreen();
 			
 			
 			
@@ -256,7 +262,7 @@ int main()
 			
 			
 			
-			cout << " Now wigglytuff's turn:" << endl << endl<< endl;
+			cout << " Now Wigglytuff's turn:" << endl << endl<< endl;
 			randomcislo = rand() % 5 + 1;
 			
 
@@ -311,7 +317,7 @@ int main()
 
 			
 			if (hp1 < 1) {
-					clearscreen1();
+					clearscreen();
 					cout << endl << endl << "    Wigglytuff wins this match " << username << "!" << endl << endl;
 					cout << endl << endl << "    Thank you for playing my shitty game! " << endl << endl;
 					pikachu(hp1);
@@ -324,7 +330,7 @@ int main()
 					stop = false;
 			}
 			else if (hp2 < 1) {
-					clearscreen1();
+					clearscreen();
 					cout << endl << endl << "    Pikachu wins this match " << username << "!" << endl << endl;
 					cout << endl << endl << "    Thank you for playing my shitty game! " << endl << endl;
 					pikachu(hp1);
@@ -351,7 +357,7 @@ int main()
 
 
 
-	else if (charakter == 2) {
+	else if (charakter == 2 ) {
 		
 			clearscreen();
 			cout << "You choose Wigglytuff as your Pokémon " << username << "!" << endl << endl;
@@ -361,10 +367,10 @@ int main()
 
 
 				cout << endl;
-				clearscreen1();
 				wigglyspells(hp2);
 				cout << endl;
 				cin >> utok;
+				clearscreen();
 
 
 				switch (utok) {
@@ -488,7 +494,7 @@ int main()
 
 
 				if (hp1 < 1) {
-					clearscreen1();
+					clearscreen();
 					cout << endl << endl << "    Wigglytuff wins this match " << username << "!" << endl << endl;
 					cout << endl << endl << "    Thank you for playing my shitty game! " << endl << endl;
 					pikachu(hp1);
@@ -500,7 +506,7 @@ int main()
 					stop = false;
 				}
 				else if (hp2 < 1) {
-					clearscreen1();
+					clearscreen();
 					cout << endl << endl << "    Pikachu wins this match " << username << "!" << endl << endl;
 					cout << endl << endl << "    Thank you for playing my shitty game! " << endl << endl;
 					pikachu(hp1);
